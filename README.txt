@@ -3,8 +3,7 @@ a. Chong Tshuen Hau
 
 b. A0217081M
 
-c1. from the project directory, run
-```npm start```
+c1. from the project directory, run "npm start"
 
 c2. the database is stored on the cloud in firebase (I am using cloud firestore specifically)
 
