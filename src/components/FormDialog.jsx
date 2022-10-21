@@ -168,9 +168,7 @@ const FormDialog = ({ user, getUser, setState, state }) => {
           <TextField
             error={!(email.length > 0)}
             required
-            helperText={
-              !(displayName.length > 0) ? "This cannot be left blank." : ""
-            }
+            helperText={!(email.length > 0) ? "This cannot be left blank." : ""}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start"></InputAdornment>
