@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Button from "@mui/material/Button";
+import * as React from "react";
+import TopAppBar from "./components/TopAppBar";
+import { AuthProvider } from "./contexts/AuthProvider";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link as routerLink,
+} from "react-router-dom";
+import { routes as appRoutes } from "./routes";
 
 function App() {
+  // const [value, setValue] = React.useState("map");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <div className="App">
+        <Router>
+          {" "}
+          <TopAppBar />
+          <header className="App-header">
+            <Routes>
+              {appRoutes.map((route) => (
+                <Route
+                  key={route.key}
+                  path={route.path}
+                  element={<route.component />}
+                />
+              ))}
+            </Routes>
+          </header>
+        </Router>
+      </div>
+    </AuthProvider>
   );
 }
 

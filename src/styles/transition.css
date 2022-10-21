@@ -1,0 +1,11 @@
+.transition {
+  color: black;
+  background-color: black;
+}
+
+.button {
+  text-transform: "none";
+}
+.lower {
+  text-transform: lowercase !important;
+}

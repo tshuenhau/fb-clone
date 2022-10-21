@@ -1,0 +1,22 @@
+.container {
+  z-index: 3;
+}
+/* .message,
+.table {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+
+.search {
+  margin-top: 2%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  z-index: 0;
+  text-align: center;
+  color: black;
+}

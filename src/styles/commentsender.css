@@ -1,0 +1,29 @@
+.commentSender {
+  width: 100%;
+  display: flex;
+  margin-top: 30px;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px 0 20px 0;
+  align-items: center;
+}
+
+.commentSender > form {
+  margin-left: 30px;
+  width: 75%;
+}
+.commentSender__button {
+  display: none;
+}
+
+.commentSender__input {
+  flex: 1;
+  outline-width: 0;
+  border: none;
+  width: 100%;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 999px;
+  background-color: #eff2f5;
+}

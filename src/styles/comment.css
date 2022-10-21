@@ -1,0 +1,37 @@
+.name {
+  font-size: small;
+  font-weight: bold;
+  color: rgb(92, 92, 92);
+}
+
+.content {
+  padding-top: 1%;
+  font-size: medium;
+  word-wrap: break-word;
+  overflow: hidden;
+  color: black;
+}
+
+.date {
+  font-size: small;
+  color: grey;
+}
+
+.delete {
+  color: black;
+  position: relative;
+}
+
+.main {
+  flex: 1;
+  outline-width: 0;
+  border: none;
+  width: max-content;
+  padding: 10px 20px;
+  margin: 0 25px;
+  /* margin: 0 10px; */
+  border-radius: 20px;
+  background-color: #eff2f5;
+  word-break: break-all;
+  text-align: start;
+}
