@@ -99,7 +99,8 @@ const ResponsiveAppBar = () => {
             <Typography
               variant="h6"
               noWrap
-              component="a"
+              component={Link}
+              to={"/"}
               href="/"
               sx={{
                 mr: 2,

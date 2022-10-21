@@ -24,7 +24,8 @@ import { db } from "../firebase";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 import FriendButton from "../components/FriendButton.jsx";
-
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 function createData(name, uid) {
   return { name, uid };
 }
@@ -34,6 +35,11 @@ function createData(name, uid) {
 // }
 
 const People = () => {
+  const [alignment, setAlignment] = React.useState("left");
+
+  const handleAlignment = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
   const [searchedVal, setSearchedVal] = useState("");
   const { user, auth } = useContext(AuthContext);
   const [rows, setRows] = useState([]);
@@ -205,8 +211,8 @@ const People = () => {
         flexGrow: 1,
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
-        paddingTop: "0%",
+        justifyContent: "start",
+        paddingTop: "5%",
         alignItems: "center",
         overflow: "auto",
         height: "100%",
@@ -219,21 +225,52 @@ const People = () => {
           display: "flex",
           flexDirection: "row",
           paddingBottom: "50px",
-          justifyContent: "center",
+          justifyContent: "space",
           paddingTop: "0%",
           alignItems: "center",
         }}
       >
         {" "}
-        <Button variant="outlined" onClick={getPeople}>
+        <ToggleButtonGroup
+          color="primary"
+          value={alignment}
+          exclusive
+          onChange={handleAlignment}
+          aria-label="text alignment"
+        >
+          {" "}
+          <ToggleButton
+            sx={{}}
+            value="left"
+            aria-label="left aligned"
+            onClick={getPeople}
+          >
+            All
+          </ToggleButton>
+          <ToggleButton
+            value="center"
+            aria-label="centered"
+            onClick={getFriends}
+          >
+            Friends
+          </ToggleButton>
+          <ToggleButton
+            value="right"
+            aria-label="right aligned"
+            onClick={getFriendRequests}
+          >
+            Friend Requests
+          </ToggleButton>
+        </ToggleButtonGroup>
+        {/* <Button sx={{}} variant="outlined" onClick={getPeople}>
           All
         </Button>
-        <Button variant="outlined" onClick={getFriends}>
+        <Button sx={{ mx: 1 }} variant="outlined" onClick={getFriends}>
           Friends
         </Button>
-        <Button variant="outlined" onClick={getFriendRequests}>
+        <Button sx={{}} variant="outlined" onClick={getFriendRequests}>
           Friend Requests
-        </Button>
+        </Button> */}
       </Box>
       <Box
         sx={{
