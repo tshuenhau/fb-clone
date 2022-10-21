@@ -12,6 +12,9 @@ const CommentSender = ({ postId, getComments }) => {
   const [imageUrl, setImageUrl] = useState("");
 
   const handleSubmit = async (e) => {
+    if (input.length < 1) {
+      return;
+    }
     e.preventDefault();
 
     await addDoc(collection(db, "comments"), {
@@ -32,6 +35,7 @@ const CommentSender = ({ postId, getComments }) => {
       <Avatar src={user?.photoURL} />
       <form>
         <input
+          required={true}
           value={input}
           maxlength="100"
           onChange={(e) => setInput(e.target.value)}

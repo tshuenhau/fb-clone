@@ -72,10 +72,16 @@ const FormDialog = ({ user, getUser, setState, state }) => {
   };
 
   const handleClose = () => {
+    setDisplayName(user.displayName);
+    setEmail(user.email);
+    setBio(user.bio);
     setOpen(false);
   };
 
   const handleSubmit = async (e) => {
+    if (displayName.length < 1 || email.length < 1) {
+      return;
+    }
     e.preventDefault();
 
     if (displayName !== user.displayName) {
@@ -136,9 +142,15 @@ const FormDialog = ({ user, getUser, setState, state }) => {
         <EditIcon></EditIcon> Edit
       </Button>
       <Dialog open={open} onClose={handleClose}>
+        {" "}
         <DialogTitle>Edit Profile</DialogTitle>
         <DialogContent>
           <TextField
+            helperText={
+              !(displayName.length > 0) ? "This cannot be left blank." : ""
+            }
+            error={!(displayName.length > 0)}
+            required
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start"></InputAdornment>
@@ -154,6 +166,11 @@ const FormDialog = ({ user, getUser, setState, state }) => {
             variant="standard"
           />{" "}
           <TextField
+            error={!(email.length > 0)}
+            required
+            helperText={
+              !(displayName.length > 0) ? "This cannot be left blank." : ""
+            }
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start"></InputAdornment>
@@ -170,7 +187,7 @@ const FormDialog = ({ user, getUser, setState, state }) => {
             variant="standard"
           />
           <TextField
-            inputProps={{ maxLength: 250 }}
+            inputProps={{ minLength: 1, maxLength: 250 }}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start"></InputAdornment>
@@ -188,7 +205,9 @@ const FormDialog = ({ user, getUser, setState, state }) => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleSubmit}>Confirm</Button>
+          <Button type="submit" onClick={handleSubmit}>
+            Confirm
+          </Button>
         </DialogActions>
       </Dialog>
     </div>

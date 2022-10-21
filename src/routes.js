@@ -3,6 +3,8 @@ import Friends from "./pages/Friends";
 import People from "./pages/People";
 import MyProfile from "./pages/MyProfile";
 import FriendRequests from "./pages/FriendRequests";
+import SignUp from "./pages/SignUp";
+
 export const routes = [
   {
     key: "home-route",
@@ -45,5 +47,12 @@ export const routes = [
     path: "/friendrequests",
     enabled: true,
     component: FriendRequests,
+  },
+  {
+    key: "signup-route",
+    title: "Sign Up",
+    path: "/signup",
+    enabled: true,
+    component: SignUp,
   },
 ];

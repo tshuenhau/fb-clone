@@ -16,6 +16,9 @@ const MessageSender = ({ getPosts, state }) => {
   const [imageUrl, setImageUrl] = useState("");
 
   const handleSubmit = async (e) => {
+    if (input.length < 1) {
+      return;
+    }
     e.preventDefault();
 
     await addDoc(collection(db, "posts"), {
@@ -51,6 +54,8 @@ const MessageSender = ({ getPosts, state }) => {
         <form>
           {/* <CreatePost></CreatePost> */}
           <input
+            required={true}
+            type="text"
             maxlength="250"
             value={input}
             onChange={(e) => setInput(e.target.value)}

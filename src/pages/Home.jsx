@@ -7,6 +7,8 @@ import { useContext, useEffect, useState, onSnapshot } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 import FaceIcon from "@mui/icons-material/Face";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { user, auth } = useContext(AuthContext);
@@ -56,6 +58,9 @@ const Home = () => {
         <div></div>
       )}
       <LoginButton />
+      {/* <Button component={Link} to="/SignUp" variant="outlined">
+        Sign Up
+      </Button> */}
       {user ? <Feed /> : <div></div>}
     </Box>
   );
